@@ -2,6 +2,8 @@
 
 Udaya AI is a smart, AI-powered morning assistant built using Streamlit + Gemini AI that helps users start their day with clarity, positivity, and planning.
 
+Live Demo: https://morning-buddy---smart-day-planner-satyam.streamlit.app/
+
 It provides:
 
 🌤 Intelligent weather insights
