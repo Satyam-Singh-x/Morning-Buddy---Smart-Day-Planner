@@ -2,6 +2,7 @@ streamlit
 requests
 python-dotenv
 google-genai
-gTTS
+gtts
+
 
 
