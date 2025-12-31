@@ -94,7 +94,7 @@ def weather_news_page():
 
             st.markdown(
                 f"""
-                <div style="font-size:22px; font-weight:600; margin-top:10px;">
+                <div style="font-size:17px; font-weight:500; margin-top:30px;">
                     🌡️ {ai_temperature}
                 </div>
                 """,
@@ -219,3 +219,4 @@ elif page_option == "📰 News":
     interest_news_page()
 elif page_option == "🧠 Smart Planner":
     smart_planner_page()
+
