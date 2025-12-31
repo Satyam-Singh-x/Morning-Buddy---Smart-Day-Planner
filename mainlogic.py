@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 import datetime
+from gtts import gTTS
+from io import BytesIO
 # -------------------- SETUP --------------------
 
 load_dotenv()
@@ -240,6 +242,19 @@ def smart_planner(city):
     )
 
     return response.candidates[0].content.parts[0].text
+
+
+def narrate(text):
+    try:
+        tts = gTTS(text=text, lang='en', slow=False)
+        audio_fp = BytesIO()
+        tts.write_to_fp(audio_fp)
+        audio_fp.seek(0)
+        return audio_fp
+    except Exception as err:
+
+        return f'An error occurred: {err}'
+
 
 
 
