@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import datetime
-from mainlogic import get_weather , analyze_weather_with_gemini , get_news,summarize_news,smart_planner
+from mainlogic import get_weather , analyze_weather_with_gemini , get_news,summarize_news,smart_planner,narrate
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -100,6 +100,13 @@ def weather_news_page():
                 """,
                 unsafe_allow_html=True
             )
+            st.markdown('---')
+            st.write('Listen to the Weather Forecast: ')
+            audio = narrate(ai_temperature)
+
+            st.audio(audio, format='audio/mp3')
+            st.markdown('---')
+
 
             st.success("✅ Weather data fetched successfully!")
         else:
@@ -193,9 +200,16 @@ def smart_planner_page():
             st.markdown('---')
             st.write(smart_plan)
             st.markdown('---')
+            st.write('Listen your Smart Day Plan! ')
+
+            audio = narrate(smart_plan)
+
+            st.audio(audio, format='audio/mp3')
             st.success('Have a nice day!')
+            st.markdown('---')
         else:
             st.error("Please enter a city name.")
+
 
 
 # ---------------- SIDEBAR ----------------
@@ -219,4 +233,3 @@ elif page_option == "📰 News":
     interest_news_page()
 elif page_option == "🧠 Smart Planner":
     smart_planner_page()
-
