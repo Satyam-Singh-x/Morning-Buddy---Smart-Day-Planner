@@ -8,15 +8,26 @@ from gtts import gTTS
 from io import BytesIO
 # -------------------- SETUP --------------------
 
-load_dotenv()
+import os
+import requests
+import streamlit as st  
+from google import genai
+from google.genai import types
+import datetime
+from gtts import gTTS
+from io import BytesIO
 
-OPENWEATHER_API = os.getenv("OPENWEATHER_API_KEY")
-NEWS_API = os.getenv("NEWS_API")
-GEMINI_API = os.getenv("GOOGLE_API_KEY")
+# -------------------- SETUP --------------------
 
-
+OPENWEATHER_API = st.secrets["OPENWEATHER_API_KEY"]
+NEWS_API = st.secrets["NEWS_API"]
+GEMINI_API = st.secrets["GOOGLE_API_KEY"]
+SERP_API_KEY = st.secrets["SERP_API_KEY"] 
 
 client = genai.Client(api_key=GEMINI_API)
+
+
+
 
 # -------------------- WEATHER --------------------
 
